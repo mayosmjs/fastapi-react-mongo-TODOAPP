@@ -5,7 +5,7 @@ This application provides a user-friendly interface for managing your tasks and 
 ![screenshots](screenshots/detail.png)
 ![screenshots](screenshots/update.png)
 
-## Goal
+# Goal
 The project mainly aimed to put into practice knowledge of react, Mongodb and FastApi.
 
 ## Tools used
@@ -22,11 +22,6 @@ clone project
 https://github.com/mayosmjs/fastapi-react-mongo-TODOAPP
 
 ```
-Go to projet
-```
-cd to Backend to start the backend services
-```
-
 ### Setting up python environment
 
 Assuming Python is installed on your local machine, execute the following command to set up a virtual environment for the project.
