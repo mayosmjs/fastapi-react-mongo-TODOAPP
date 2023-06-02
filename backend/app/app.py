@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from core.config import settings
 from beanie import init_beanie
 from motor.motor_asyncio import AsyncIOMotorClient
+from fastapi.middleware.cors import CORSMiddleware
 from models.user import User
 from models.todo import Todo
 from api.api_v1.router import router
@@ -11,6 +12,15 @@ from api.api_v1.router import router
 app = FastAPI(
     title=settings.PROJECT_NAME,
     openapi_url=f"{settings.API_V1}/openapi.json"
+)
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=settings.BACKEND_CORS_ORIGINS,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 

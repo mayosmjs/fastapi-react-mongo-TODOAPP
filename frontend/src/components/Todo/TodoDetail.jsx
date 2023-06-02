@@ -19,14 +19,9 @@ import {
     const { todoId } = useParams();
     const navigate = useNavigate();
     const toast = useToast();
-    const background = useColorModeValue("gray.300", "gray.700");
-  
-    useEffect(() => {
-      if (isMounted.current) return;
-      fetchTodo();
-      isMounted.current = true;
-    }, [todoId]);
-  
+    // const background = useColorModeValue("gray.300", "gray.700");
+    const background = useColorModeValue('linear(to-r, gray.600, blue.900)','linear(to-r, gray.600, blue.900)',)
+
     const fetchTodo = () => {
       setLoading(true);
       axiosInstance
@@ -39,7 +34,7 @@ import {
           setLoading(false);
         });
     };
-  
+
     const delateTodo = () => {
       setLoading(true);
       axiosInstance
@@ -64,6 +59,16 @@ import {
         })
         .finally(() => setLoading(false));
     };
+  
+    
+    useEffect(() => {
+      if (isMounted.current) return;
+      fetchTodo();
+      isMounted.current = true;
+    }, [todoId]);
+  
+    
+  
   
     if (loading) {
       return (
@@ -93,7 +98,7 @@ import {
           </Button>
         </Container>
         <Container
-          bg={background}
+          bgGradient={background}
           minHeight="7rem"
           my={3}
           p={3}

@@ -83,7 +83,8 @@ import {
         >
           <ModalOverlay />
           <form onSubmit={handleSubmit(onSubmit)}>
-            <ModalContent>
+            <ModalContent bgGradient={useColorModeValue('linear(to-r, gray.600, blue.900)','linear(to-r, gray.600, blue.900)',)}
+>
               <ModalHeader>{editable ? "Update Task" : "Add Task"}</ModalHeader>
               <ModalCloseButton />
               <ModalBody>

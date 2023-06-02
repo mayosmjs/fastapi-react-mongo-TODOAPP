@@ -14,7 +14,10 @@ export const Register = () => {
 
   return (
       <Flex height="100vh" align="center" justifyContent="center"> 
-            <Flex direction="column" alignItems="center" background={useColorModeValue('gray.200','gray.700')} p={12} rounded={6}>
+            <Flex direction="column" alignItems="center" 
+            // background={useColorModeValue('gray.200','gray.700')}
+            bgGradient={useColorModeValue('linear(to-r, gray.600, blue.900)','linear(to-r, gray.600, blue.900)',)}
+             p={12} rounded={6}>
                 <Heading mb={6} >Register</Heading>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <FormControl isInvalid={errors.email}>

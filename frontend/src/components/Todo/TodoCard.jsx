@@ -1,4 +1,4 @@
-import { Badge, Flex, Text, useColorModeValue ,Box,Image,AspectRatio,Stack,Link,Button} from "@chakra-ui/react";
+import { Badge, Flex, Text, useColorModeValue ,Box} from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
 export const TodoCard = ({ todo }) => {
