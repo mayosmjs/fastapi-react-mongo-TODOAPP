@@ -1,21 +1,36 @@
-import {Flex, Heading, useColorModeValue,FormControl,FormErrorMessage,Button,Input} from "@chakra-ui/react"
+import {Flex,useToast, Heading, useColorModeValue,FormControl,FormErrorMessage,Button,Input} from "@chakra-ui/react"
 import {useForm} from "react-hook-form"
 import { useNavigate } from "react-router-dom";
 import { ThemeToggler } from "../Theme/ThemeToggler";
-
+import axiosInstance from "../../services/axios";
 
 export const Register = () => {
-
+  const toast = useToast();
   const {handleSubmit,register,formState:{errors,isSubmitting}} = useForm();
-  const onSubmit = (value)=>{
-    console.log(value)
-  }
+  const onSubmit = async (values) => {
+    try {
+      await axiosInstance.post("/users/create", values);
+      toast({
+        title: "Account created successfully.",
+        status: "success",
+        isClosable: true,
+        duration: 1500,
+      });
+      navigate("/login", { replace: true });
+    } catch (err) {
+      toast({
+        title: `${err.response.data.detail}`,
+        status: "error",
+        isCloseable: true,
+        duration: 1500,
+      });
+    }
+  };
   const navigate = useNavigate();
 
   return (
       <Flex height="100vh" align="center" justifyContent="center"> 
             <Flex direction="column" alignItems="center" 
-            // background={useColorModeValue('gray.200','gray.700')}
             bgGradient={useColorModeValue('linear(to-r, gray.600, blue.900)','linear(to-r, gray.600, blue.900)',)}
              p={12} rounded={6}>
                 <Heading mb={6} >Register</Heading>
